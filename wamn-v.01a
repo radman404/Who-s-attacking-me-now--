@@ -32,12 +32,14 @@ def logcheck():
   LOG = './auth.log.0'
   auth_logs = open(LOG, 'r')
   attacks = {}
+  users = {}
   origin_unknown = {}
   print "Parsing log file"
   for log in auth_logs:
     l = {"raw": log }
     normalizer.normalize(l)
     if l.get('action') == 'fail' and l.get('program') == 'sshd':	
+      u = l['user']
       p = l['source_ip']
       oct1, oct2, oct3, oct4 = [int(i) for i in p.split('.')] #split IP so we can check for private addr
       if oct1 == 192 and oct2 == 168 or oct1 == 172 and oct2 in range(15, 32) or oct1 == 10: #check for private addr
@@ -48,7 +50,8 @@ def logcheck():
       else:
         printRecord(p)
         attacks[l['source_ip']] = attacks.get(l['source_ip'], 0)+ 1
-  sort(attacks)
+      users[u] = users.get(u, 0)+ 1  	
+  sort(attacks, users)
   gmaps()
   en2con()
   main()
@@ -114,7 +117,7 @@ def gmaps():
     map.addpoint(float(p), float(k))
   map.draw('./map.html')
 
-def sort(attacks):
+def sort(attacks, users):
   print "Attack IP Sorted in order"	
   for i,j in sorted(attacks.items(), cmp = lambda a,b: cmp(a[1], b[1]) ):
     #print "Attack IP sorted in order"
@@ -124,6 +127,9 @@ def sort(attacks):
   for p,k in sorted(countries.items(), cmp = lambda c,d: cmp(c[1], d[1]) ):
    # print "Attacking countries sorted in order"
     print "\t%s (%i attempts)" % (p,k)
+  print "Usernames used in attacks Sorted in Order"
+  for u,a in sorted(users.items(), cmp = lambda e,f: cmp(e[1], f[1]) ):
+    print "\t%s (%i attempts)" % (u,a)
 
 def resolvegeoip():
   ur = raw_input("URL [>] ")
