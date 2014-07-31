@@ -4,7 +4,9 @@ Who-s-attacking-me-now--
 A Python script that will parse your auth log for failed ssh login attempts
 
 Guide to using WAMN V 0.1a
+
 What is WAMN?
+
 WAMN stands for Who’s Attacking me now? It is a script which reads logs and produces reports, maps and graphs based on attacks which it detects against the system. WAMN is currently pre-alpha. Its current functionality allows it to open the ssh log on a debian based system, parse the log then produce a report which details which IP addresses have attempted to login, their geolocation, a report sorted by country and number of attacks. It then populates a map which can be viewed locally or made public.
 Future developments for WAMN include: adding support for different services, different OSs, running the passwords used against common wordlists in an attempt to identify if the attack is targeted or sophisticated and creating an alert, running the usernames attempted against similar lists to identify if a database has been breached and the usernames are being employed, an algorithm to estimate the sophistication of the attack and fingerprint bots, advanced attack detection in webserver logs and an option to submit your data to the WAMN site to crowdsource attacks in real time.
 WAMN has many uses: in security education, for sysadmins who have to report on attacks and for systems which require ports to be open on default numbers. An example of this is c-panel which required root login on the default ssh port.   
