@@ -1,1 +1,10 @@
-est
+To be done…
+Fix the Menus!
+User input of path to log file to be used.
+Do something about the other hardcoded paths.
+Checks for other services (Apache, su failures …)
+Add in a function to collect users IP run a geolocation on it then using the Latitude and Longitude of that IP to create the map in pygmaps (map = pygmaps.maps(55.9013, -3.536, 3)) 
+Add nmap functionality, option to nmap ip address of ‘attackers’ Check legalities*
+Make script installable.
+Investigate whether load balancers affect socket.gethostbyname() – are we getting the server IP or the loadbalancer IP?
+Add support for different OSs
