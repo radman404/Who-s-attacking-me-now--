@@ -9,7 +9,7 @@ Make script installable.
 Investigate whether load balancers affect socket.gethostbyname() – are we getting the server IP or the loadbalancer IP?
 Add support for different OSs
 Add support for different logs- i.e. Webservers
-Create a list of passwrods used and diff against known wordlists
+Create a list of passwords used and diff against known wordlists
 Create a list of comomn usernames diff against them
 Create an aleart feature if these are different i.e. breached datdbases and those non-standard creds used
 Offer option to grep databases to check this
