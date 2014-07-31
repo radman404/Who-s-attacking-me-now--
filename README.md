@@ -45,3 +45,17 @@ Option 1 will take a user inputted IP address and geolocate it and take you back
 Option 2 will take a user inputted URL and use socket.gethostbyname() to get the IP address of the server in which the URL points to.
  Option 3 will parse your auth.log file and check for failed ssh login attempts it will then take the IP address from these attempts and geolocate them, then will output  the data from the geolocation attempt if it got it, if there is no record it will tell you this. It will also sort out attacks by country and tell you how many attempts were made by which countries.
 
+Fix the Menus!
+User input of path to log file to be used.
+Do something about the other hardcoded paths.
+Checks for other services (Apache, su failures …)
+Add in a function to collect users IP run a geolocation on it then using the Latitude and Longitude of that IP to create the map in pygmaps (map = pygmaps.maps(55.9013, -3.536, 3)) 
+Add nmap functionality, option to nmap ip address of ‘attackers’ Check legalities*
+Make script installable.
+Investigate whether load balancers affect socket.gethostbyname() – are we getting the server IP or the loadbalancer IP?
+Add other OSs
+Add check for other logs like webservers
+Be able to pipe the failed passwords into a file and diff it with know wordlists to identify bots/skiddies
+Create alert is passwords are non standard
+Create aleart if username is not on the common lists
+Offer option to grep the database to see if the nonstandard user is there- indicating possibl
