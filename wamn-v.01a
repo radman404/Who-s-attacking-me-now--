@@ -1,6 +1,6 @@
 
 # Who's Attacking Me Now? (WAMN)
-# An applocation to parse ssh logs, report and map attacks on Debian based systems.
+# An application to parse ssh logs, report and map attacks on Debian based systems.
 # Further functionality for other OSs and different logs will be added.
 # WAMN is released under the GPL V2
 # However we would like you to buy us pizza and beer if you like it!
