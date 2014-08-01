@@ -1,4 +1,4 @@
-
+#!/usr/bin/python 
 # Who's Attacking Me Now? (WAMN)
 # An application to parse ssh logs, report and map attacks on Debian based systems.
 # Further functionality for other OSs and different logs will be added.
