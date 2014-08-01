@@ -54,7 +54,7 @@ def logcheck():
       u = l['user']
       p = l['source_ip']
       oct1, oct2, oct3, oct4 = [int(i) for i in p.split('.')] #split IP so we can check for private addr
-      if oct1 == 192 and oct2 == 168 or oct1 == 172 and oct2 in range(15, 32) or oct1 == 10: #check for private addr
+      if oct1 == 192 and oct2 == 168 or oct1 == 172 and oct2 in range(16, 32) or oct1 == 10: #check for private addr
         print "Private ip attack, %s No geolocation available" % str(p)
       if attacks.has_key(p): #if not private do geolocate
         attacks[l['source_ip']] = attacks.get(l['source_ip'], 0)+ 1
