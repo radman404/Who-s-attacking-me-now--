@@ -2,6 +2,7 @@ Who-s-attacking-me-now--
 ========================
 
 A Python script that will parse your auth log for failed ssh login attempts
+(Confirmed as working on Ubuntu and Mint, Debian requires further dependencies like python and ssh)
 
 Guide to using WAMN V 0.1a
 
