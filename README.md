@@ -31,7 +31,7 @@ you should now be almost ready to use WAMN!
 
 Usage.
 
-There are a few hard coded paths in the code at the minute, we will figure out a better way of doing this in later versions. These need to be changed to point to your normalizers for logsparser, the .dat file for pygeoip and the auth.log to parse.
+There are a few hard coded paths in the code just now, we will figure out a better way of doing this in later versions. These need to be changed to point to your normalizers for logsparser, the .dat file for pygeoip and the auth.log to parse.
 normalizer = LN('/usr/share/normalizers') line 12
 gi = pygeoip.GeoIP('/path/to/GeoLiteCity.dat') line 13
 LOG = '/var/log/auth.log' line 32
@@ -40,23 +40,32 @@ Run it as root.
 #python wamn.py
 You’ll get a menu enter the number assigned to an option. 1 is not integrated yet. 
 2 runs a geoip on a user given IP address and exits. 
-3 will send you to another menu names “Tools Main Menu” and pressing 1 at this menu will take you to the “Geolocation Menu”
+3 will send you to another menu named “Tools Main Menu” and pressing 1 at this menu will take you to the “Geolocation Menu”
 All options on this menu work as of this version.
 Option 1 will take a user inputted IP address and geolocate it and take you back to the menu. 
 Option 2 will take a user inputted URL and use socket.gethostbyname() to get the IP address of the server in which the URL points to.
- Option 3 will parse your auth.log file and check for failed ssh login attempts it will then take the IP address from these attempts and geolocate them, then will output  the data from the geolocation attempt if it got it, if there is no record it will tell you this. It will also sort out attacks by country and tell you how many attempts were made by which countries.
+ Option 3 will parse your auth.log file and check for failed ssh login attempts it will then take the IP address from these attempts and geolocate them, then will output  the data from the geolocation attempt if any were successful, if there is no record it will tell you this. It will also sort out attacks by country and tell you how many attempts were made by which countries.
+
+auth.log
+
+Auth.log is a dirt log from a server which is IP only and has only ssh running on 22. You can use auth.log to test WAMN. If you have other representative logs for different services please consider sanitising them and pushing them to the WAMN project.
+
+
+Things to Do:
 
 Fix the Menus!
 User input of path to log file to be used.
 Do something about the other hardcoded paths.
 Checks for other services (Apache, su failures …)
-Add in a function to collect users IP run a geolocation on it then using the Latitude and Longitude of that IP to create the map in pygmaps (map = pygmaps.maps(55.9013, -3.536, 3)) 
+Add in a function to collect users' IP, run a geolocation on it then using the Latitude and Longitude of that IP to create the map in pygmaps (map = pygmaps.maps(55.9013, -3.536, 3)) 
 Add nmap functionality, option to nmap ip address of ‘attackers’ Check legalities*
 Make script installable.
 Investigate whether load balancers affect socket.gethostbyname() – are we getting the server IP or the loadbalancer IP?
+Ditto firewalls
 Add other OSs
-Add check for other logs like webservers
 Be able to pipe the failed passwords into a file and diff it with know wordlists to identify bots/skiddies
-Create alert is passwords are non standard
+Create alert if passwords are non-standard
 Create aleart if username is not on the common lists
-Offer option to grep the database to see if the nonstandard user is there- indicating possibl
+Offer option to grep the database to see if the non-standard user is there- indicating possible database breach
+Work towards a structured approach to storing examples of attacks to check for
+Build WAMN site and offer options to contribute results to big ass real time map
