@@ -1,3 +1,13 @@
+#!/usr/bin/python
+# Who's Attacking Me Now? (WAMN)
+# An application to parse ssh logs, report and map attacks on Debian based systems.
+# Further functionality for other OSs and different logs will be added.
+# WAMN is released under the GPL V2
+# However we would like you to buy us pizza and beer if you like it!
+# The authors accept no responsibility for damage cause by the program or irresponsible use
+# Authors: Paul Mason (Paulmason126[at]gmail[dot]com) ; Kyle Fleming (kylefleming[at]gmail[dot}com)
+# Contributors: TBC Come on folks!!!
+# Thanks: TJ O'Connor Author of Violent Python which gave us the inspiration for this app
 import sys, signal, socket
 import urllib2
 import urlparse 
