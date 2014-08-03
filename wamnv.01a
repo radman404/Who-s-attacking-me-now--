@@ -41,7 +41,7 @@ def geo_menu():
     geo_menu()
  
 def logcheck():
-  LOG = './auth.log.0'
+  LOG = './auth.log'
   auth_logs = open(LOG, 'r')
   attacks = {}
   users = {}
