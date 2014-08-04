@@ -1,6 +1,10 @@
 Things to Do:
 
-Fix the Menus! User input of path to log file to be used. Do something about the other hardcoded paths. Checks for other services (Apache, su failures …) Add in a function to collect users' IP, run a geolocation on it then using the Latitude and Longitude of that IP to create the map in pygmaps (map = pygmaps.maps(55.9013, -3.536, 3)) Add nmap functionality, option to nmap ip address of ‘attackers’ Check legalities* Make script installable. Investigate whether load balancers affect socket.gethostbyname() – are we getting the server IP or the loadbalancer IP? Ditto firewalls Add other OSs Be able to pipe the failed passwords into a file and diff it with know wordlists to identify bots/skiddies Create alert if passwords are non-standard Create aleart if username is not on the common lists Offer option to grep the database to see if the non-standard user is there- indicating possible database breach Work towards a structured approach to storing examples of attacks to check for Build WAMN site and offer options to contribute results to big ass real time map
-Create an aleart feature if these are different i.e. breached datdbases and those non-standard creds used
+Fix the Menus! User input of path to log file to be used. Do something about the other hardcoded paths. Checks for other services (Apache, su failures …) Add in a function to collect users' IP, run a geolocation on it then using the Latitude and Longitude of that IP to create the map in pygmaps (map = pygmaps.maps(55.9013, -3.536, 3)) 
+Add nmap functionality, option to nmap ip address of ‘attackers’ Check legalities* 
+Make script installable. 
+Investigate whether load balancers affect socket.gethostbyname() – are we getting the server IP or the loadbalancer IP? Ditto firewalls 
+Add other OSs Be able to pipe the failed passwords into a file and diff it with know wordlists to identify bots/skiddies Create alert if passwords are non-standard Create aleart if username is not on the common lists Offer option to grep the database to see if the non-standard user is there- indicating possible database breach Work towards a structured approach to storing examples of attacks to check for Build WAMN site and offer options to contribute results to big ass real time map
+Create an alert feature if these are different i.e. breached datdbases and those non-standard creds used
 Offer option to grep databases to check this
 Anything else anyone can think off, please just say!
