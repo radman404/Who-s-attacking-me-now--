@@ -48,7 +48,11 @@ Option 2 will take a user inputted URL and use socket.gethostbyname() to get the
 
 auth.log
 
-Auth.log is a dirt log from a server which is IP only and has only ssh running on 22. You can use auth.log to test WAMN. If you have other representative logs for different services please consider sanitising them and pushing them to the WAMN project.
+Auth.log is a dirty log from a server which is IP only and has only ssh running on 22. You can use auth.log to test WAMN. If you have other representative logs for different services please consider sanitising them and pushing them to the WAMN project.
+
+
+  This product includes GeoLite data created by MaxMind, available from
+  http://www.maxmind.com
 
 
 Things to Do:
