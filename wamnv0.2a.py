@@ -78,6 +78,8 @@ def geo_ip():
   ipaddr = raw_input("Please enter an IP Address: ")
   printRecord(ipaddr) 
   gmaps()
+  en2con()
+  geo_menu()
 
 def countryRecord(p):
   # This function gets run just to keep the country attack count right if the Ip address doesn't need geolocated again.
