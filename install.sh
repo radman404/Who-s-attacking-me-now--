@@ -9,6 +9,8 @@ if [[ $EUID -ne "0" ]]; then
 else
 	wget -N http://geolite.maxmind.com/download/geoip/database/GeoLiteCity.dat.gz
         gunzip GeoLiteCity.dat.gz
+        wget -N http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNum2.zip
+        wget -N http://download.maxmind.com/download/geoip/database/asnum/GeoIPASNum2v6.zip
         mkdir /tmp/wamnsetup && cd /tmp/wamnsetup
 	wget https://pygmaps.googlecode.com/files/pygmaps-0.1.1.tar.gz
 	wget https://bootstrap.pypa.io/get-pip.py
