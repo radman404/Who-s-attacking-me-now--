@@ -17,6 +17,7 @@ import pygeoip
 import mechanize
 import os
 import gzip
+import datetime
 from logsparser.lognormalizer import LogNormalizer as LN
 from time import sleep
 os.system('clear')
@@ -40,6 +41,7 @@ def geo_menu():
     geo_menu()
  
 def logcheck():
+  f = open('.wamn.save', 'wr')
   print "This function can also handle gzip compressed logfiles"
   LOG =  raw_input('Enter the path to the log file: ')
   if LOG.endswith('.gz'):
@@ -57,6 +59,7 @@ def logcheck():
     if l.get('action') == 'fail' and l.get('program') == 'sshd':	
       u = l['user']
       p = l['source_ip']
+      d = l['date'] 
       oct1, oct2, oct3, oct4 = [int(i) for i in p.split('.')] #split IP so we can check for private addr
       if oct1 == 192 and oct2 == 168 or oct1 == 172 and oct2 in range(15, 32) or oct1 == 10: #check for private addr
         print "Private ip attack, %s No geolocation available" % str(p)
@@ -67,6 +70,8 @@ def logcheck():
         printRecord(p)
         attacks[p] = attacks.get(p, 0)+ 1
       users[u] = users.get(u, 0)+ 1
+  f.write(str(d))
+  f.close()
   sort(attacks, users)
   gmaps()
   en2con()
@@ -78,7 +83,7 @@ def geo_ip():
   ipaddr = raw_input("Please enter an IP Address: ")
   printRecord(ipaddr) 
   gmaps()
-
+  geo_menu()
 def countryRecord(p):
   # This function gets run just to keep the country attack count right if the Ip address doesn't need geolocated again.
   # This needs fixed (As in removed, there must be a nicer way to do it!)
@@ -137,35 +142,56 @@ def gmaps():
 
 
 def sort(attacks, users):
-  
+  l = ''
+  m = ''
+  n = ''
   print "Attack IP Sorted in order"	
   for i,j in sorted(attacks.items(), cmp = lambda a,b: cmp(a[1], b[1]) ):
     #print "Attack IP sorted in order"
     print "\t%s (%i attempts)" % (i,j)
-  
+    w = "\t%s (%i attempts)\n" % (i,j)
+    l += w
+
   print "Attacking countries Sorted in order"
   for p,k in sorted(countries.items(), cmp = lambda c,d: cmp(c[1], d[1]) ):
    # print "Attacking countries sorted in order"
     print "\t%s (%i attempts)" % (p,k)
-
+    x = "\t%s (%i attempts)\n" % (p,k)
+    m += x
   print "Usernames used in attacks Sorted in Order only if 10 or more attempts made with same username"
   for u,a in sorted(users.items(), cmp = lambda e,f: cmp(e[1], f[1]) ):
     if a > 9:
       print "\t%s (%i attempts)" % (u,a)
+      g = "\t%s (%i attempts)\n" % (u,a)
+      n += g
+  report(l, m, n)
+
+def report(what, wheres, whos):
+ file = datetime.date.today()
+ name = file.strftime('%d%m%y')
+ end = '-wamn.txt'
+ filename = name+end
+ with open(filename, 'w') as f:
+  f.write(what)
+  f.write(wheres)
+  f.write(whos)
 
 def getlocation():
   i = urllib2.Request("http://icanhazip.com")
   p = urllib2.urlopen(i)
   ip = p.read() 
-
-  s = gi.record_by_name(ip)
   try:
+    s = gi.record_by_name(ip)
     global latitude 
     latitude = s['latitude']
     global longitude 
     longitude = s['longitude']
-  except TypeError:
+  except :
     print "No coordinates held for your IP address"
+    global latitiude
+    latitude = "55.9013"
+    global longitude
+    longitude = "-3.536"
 
 def resolvegeoip():
   ur = raw_input("URL [>] ")
