@@ -337,20 +337,6 @@ def toolsmenu():
   print '0) Exit'
   tools_option = raw_input('Please choose an option: ')
   try:
-    main_choice = main_menu[option]
-    main_choice()
-  except KeyError:
-    print "Invalid selection"
-    main()
-
-def toolsmenu():
-  print 'Tools Main Menu'
-  print '1) Geolocation Tool'
-  print '2) Check for an IP in your auth.log files'
-  print '3) TBC'
-  print '0) Exit'
-  tools_option = raw_input('Please choose an option: ')
-  try:
     choice = tools_dict[tools_option]
     choice()
   except KeyError:
