@@ -1,3 +1,5 @@
+Tings we may wish to consider
+
 paths to other logs....
 
 path to apache log /var/log/httpd/access_log
@@ -17,3 +19,8 @@ paths to other logs, use try, catch etc...?
 /var/log/secure or /var/log/auth.log : Authentication log
 /var/log/utmp or /var/log/wtmp : Login records file
 /var/log/yum.log : Yum command log file.
+
+worth checking for /home usernames and creating a weighted alert based on that?
+worth adding email functionality to get out report.html?
+
+find safest way to run as some sort of cron? Make that customisable?
