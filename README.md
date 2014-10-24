@@ -1,4 +1,4 @@
-Who-s-attacking-me-now--
+WAMN Who's Attacking me Now?
 ========================
 
 A Python script that will parse your auth log for failed ssh login attempts
