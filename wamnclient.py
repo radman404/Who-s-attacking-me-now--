@@ -7,7 +7,7 @@ import gzip
 import glob
 import socket
 import urllib2
-IP = '185.47.61.126'
+IP = 'IP.Of,Your.Server'
 normalizer = LN('/usr/local/share/logsparser/normalizers')
 gi = pygeoip.GeoIP('../GeoLiteCity.dat')
 def complete(text, state):
