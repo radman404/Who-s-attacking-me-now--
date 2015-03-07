@@ -66,7 +66,7 @@ def dojson(attacks, IP):
 
 def send(data):
   s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-  s.connect(('185.47.61.126', 9999))
+  s.connect(('Ip.Of.Your.Server', 9999))
   s.sendall(data)
   s.close()
 try:
