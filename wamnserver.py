@@ -130,7 +130,7 @@ def dbthis(rowindb):
     for row in rows:
       string = "IP: '{0}' Attacks:'{1}' Local_IP:'{2}' Latitude:'{3}' Longitude:'{4}'".format(row[0], row[1], row[2], row[3], row[4])
       print string
-server = MyTCPServer(('185.47.61.126', 9999), MyTCPServerHandler)
+server = MyTCPServer(('IP.Of.Your.Server', 9999), MyTCPServerHandler)
 try:
  server.serve_forever()
 except KeyboardInterrupt:
